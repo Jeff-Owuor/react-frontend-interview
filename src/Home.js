@@ -3,25 +3,25 @@ import  './Home.css'
 
 export default class Home extends React.Component{
     state = {
-        data:[]
+        users:[]
     }
     
     componentDidMount(){
         fetch('https://jsonplaceholder.typicode.com/users')
       .then(response => response.json())
-      .then(data => this.setState({ data }))
+      .then(users => this.setState({ users }))
       .catch(error => console.error(error));
     }
 
     render(){
         return(
-            <div  className="containerElement">
-                    <ul>
-                            {this.state.data.map(item => (
-                            <li key={item.id}>{item.name}</li>
+                <ol  className="containerElement">
+                            {this.state.users.map(user => (
+                            <li key={user.id}>{user.name}</li>
                             ))}
-                </ul>
-          </div>
+                </ol>
+             
+        
         )
     }
 }
