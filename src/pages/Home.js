@@ -1,7 +1,10 @@
 import React from "react";
-import  './Home.css'
+import  '../Home.css'
+import  {Link}  from  'react-router-dom'
+import { Route,Routes } from 'react-router-dom';
+import  UserDetails  from "./UserDetails"
 
-export default class Home extends React.Component{
+class Home extends React.Component{
     state = {
         users:[],
         albums:[],
@@ -21,13 +24,21 @@ export default class Home extends React.Component{
 
     render(){
         return(
+            <div>
                 <ol  className="containerElement">
                             {this.state.users.map(user => (
-                            <li key={user.id}>{user.name}</li>
+                           <li key={user.id}>
+                           <Link to={`/user/${user.id}`}>{user.name}</Link>
+                           </li>
                             ))}
                 </ol>
-             
+               <Routes>
+                   <Route  path="user/:userId"  element={<UserDetails  users={this.state.users}/>}/>
+               </Routes>
+             </div>
         
         )
     }
 }
+
+export default  Home
