@@ -3,6 +3,7 @@ import Home from './pages/Home';
 import React from 'react';
 import { Route,Routes } from 'react-router-dom';
 import UserDetails from './pages/User';
+import Login from './pages/Login'
 
 
 class  App extends React.Component{
@@ -22,6 +23,7 @@ class  App extends React.Component{
     <Routes>
         <Route  path="/home"  element={<Home  users={this.state.users}/>}/>
         <Route  path="user/:id"  element={<UserDetails  users={this.state.users}/>}/>
+        <Route   path="/login"  element={<Login/>}></Route>
     </Routes>
     </div>
   );
