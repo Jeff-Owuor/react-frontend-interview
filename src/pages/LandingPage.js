@@ -1,7 +1,8 @@
 import React,{useEffect,useState} from "react";
 import jwt_decode  from 'jwt-decode'
+import  '../Landing.css'
 
-function Login() {
+function LandingPage() {
    const [user,setUser]  = useState({});
     function handleCallbackResponse(response){
         //function that gives access to the response upon some one loging in  using our google client 
@@ -33,9 +34,15 @@ function Login() {
     //if user is available: show the log out button 
     // if user is not available show the sign in button
     return (
-        <div className="container-fluid">
-        <div  className="row">
-                 <div  className="col-md-4 mx-auto  mt-5">
+                 <div  className="containerEl">
+                    <p style={{textAlign:"center"}}>An application that displays a list of users 
+                           and the number of albums they have.
+                        </p>
+                        <p style={{textAlign:"center"}}> Click the user 
+                           to get more information about them including a list 
+                           of all the albums in their name.</p>
+                        <p style={{textAlign:"center"}}> Click an album to 
+                           see all the photos in that particular album</p>
                         <div id="loginDiv"></div>
                         {Object.keys(user).length !== 0  && 
                             <button  onClick={handleSignOut}>Log Out</button>
@@ -48,9 +55,7 @@ function Login() {
                         </div>
                         }
                  </div>
-        </div>
-        </div>
     )
 }
 
-export default Login;
+export default LandingPage;
