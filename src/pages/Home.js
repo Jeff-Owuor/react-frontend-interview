@@ -11,7 +11,7 @@ class Home extends React.Component{
                            <div className="card mt-2 mx-3" style={{width: "18rem"}} key={user.id}>
                                 <div className="card-body">
                                     <h5 className="card-title"><Link to={`/user/${user.id}`} style={{color:"black",textDecoration:"none"}}>{user.name}'s  User  Card</Link></h5>
-                                    <h6 className="card-subtitle mb-2 text-muted">Albums~</h6>
+                                    <h6 className="card-subtitle mb-2 text-muted">Albums~{this.props.albums.filter(albumUser=>albumUser.userId===user.id).length}</h6>
                                     
                                 </div>
                                 </div>
