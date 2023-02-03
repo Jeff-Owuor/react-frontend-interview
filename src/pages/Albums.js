@@ -6,16 +6,17 @@ function Albums (props){
     let album = props.albums.find(album => album.id === parseInt(id));
     let photosPerAlbum = props.photos.filter(album => album.albumId ===parseInt(id))
     return (
-        <div>
+        <div  className='container'>
             <h2>{album.title}</h2>
-            <ol>
+            <div className='row'>
                 {photosPerAlbum.map(photo => 
-                     <li key={photo.id}>
+                     <div  className="col-md-3 col-lg-3 col-sm-4 mb-2" key={photo.id} >
+                     <h5>{photo.title}</h5>
                      <img  src={photo.thumbnailUrl}/>
-                     </li>
-            
+
+                     </div>
                 )}
-            </ol>
+            </div>
         </div>
     )
 }
