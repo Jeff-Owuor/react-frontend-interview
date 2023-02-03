@@ -1,6 +1,7 @@
 import React from "react";
 import { useParams } from 'react-router-dom';
 import  {Link}  from  'react-router-dom'
+import './User.css'
 
 function UserDetails(props) {
     let { id } = useParams();
@@ -9,12 +10,8 @@ function UserDetails(props) {
 
     return (
       <div>
-        <h2>{user.name}</h2>
-        <p>Username: {user.username}</p>
-        <p>Email: {user.email}</p>
-        <p>Phone:{user.phone}</p>
-        <p>Website{user.website}</p>
-          <ol>
+        <h2>{user.name}'s Albums</h2>
+          <ol  className="square">
            {albumsPerUser.map(album=>
            <li key={album.id}>
            <Link  to={`/album/${album.id}`}> 
