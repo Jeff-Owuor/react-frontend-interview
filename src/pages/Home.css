@@ -1,0 +1,10 @@
+body{
+    background: #dde1e7;
+}
+.cardWrap{
+    background: #dde1e7;
+    box-shadow: inset -5px -5px 9px #ffffff73, inset 5px 5px 7px rgba(94,104,121,.288);
+}
+h1{
+    text-align: center;
+}
