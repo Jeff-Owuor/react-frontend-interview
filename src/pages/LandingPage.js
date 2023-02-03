@@ -1,6 +1,6 @@
 import React,{useEffect,useState} from "react";
 import jwt_decode  from 'jwt-decode'
-import  '../Landing.css'
+import  './Landing.css'
 
 function LandingPage() {
    const [user,setUser]  = useState({});
