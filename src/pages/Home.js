@@ -1,18 +1,21 @@
 import React from "react";
-import  '../Home.css'
+import  './Home.css'
 import  {Link}  from  'react-router-dom'
 
 class Home extends React.Component{
     render(){
         return(
             <div className="container">
+            <h1>Users list</h1>
             <div className="row  mt-5">
                             {this.props.users.map(user => (
-                           <div className="card mt-2 mx-3" style={{width: "18rem"}} key={user.id}>
+                           <div className="card mt-2 mb-2  mx-3 cardWrap" style={{width: "18rem"}} key={user.id}>
                                 <div className="card-body">
-                                    <h5 className="card-title"><Link to={`/user/${user.id}`} style={{color:"black",textDecoration:"none"}}>{user.name}'s  User  Card</Link></h5>
-                                    <h6 className="card-subtitle mb-2 text-muted">Albums~{this.props.albums.filter(albumUser=>albumUser.userId===user.id).length}</h6>
-                                    
+                                    <h5 className="card-title"><Link to={`/user/${user.id}`} style={{color:"black",textDecoration:"none"}}>{user.username}'s  User  Card</Link></h5>
+                                    <p>Name:<Link to={`/user/${user.id}`} style={{color:"black",textDecoration:"underline"}}>{user.name}</Link> </p>
+                                    <p>Email: {user.email}</p>
+                                    <p>Phone:{user.phone}</p>
+                                    <h3 className="card-subtitle mb-2 text-muted">Albums~{this.props.albums.filter(albumUser=>albumUser.userId===user.id).length}</h3>
                                 </div>
                                 </div>
 
