@@ -1,5 +1,5 @@
 import  React  from 'react'
-import { useParams } from 'react-router-dom';
+import { useParams,Link } from 'react-router-dom';
 
 function Albums (props){
     let { id } = useParams();
@@ -11,9 +11,8 @@ function Albums (props){
             <div className='row'>
                 {photosPerAlbum.map(photo => 
                      <div  className="col-md-3 col-lg-3 col-sm-4 mb-2" key={photo.id} >
-                     <h5>{photo.title}</h5>
+                     <Link  to={`/photo/${photo.id}`}><h5>{photo.title}</h5></Link>
                      <img  src={photo.thumbnailUrl}/>
-
                      </div>
                 )}
             </div>
