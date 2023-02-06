@@ -5,13 +5,14 @@ import { Route,Routes } from 'react-router-dom';
 import UserDetails from './pages/User';
 import LandingPage from './pages/LandingPage'
 import Albums from './pages/Albums';
+import Photo from './pages/Photo';
 
 
 class  App extends React.Component{
         state = {
           users:[],
           albums:[],
-          photos:[]
+          photos:[],
       }
 
       componentDidMount(){
@@ -30,6 +31,10 @@ class  App extends React.Component{
         .then(photos => this.setState({ photos }))
         .catch(error => console.error(error));
       }
+
+      
+      
+
   render(){
   return (
     <div className="App">
@@ -38,6 +43,7 @@ class  App extends React.Component{
         <Route  path="/home"  element={<Home  users={this.state.users} albums={this.state.albums}/>}/>
         <Route  path="user/:id"  element={<UserDetails  users={this.state.users}  albums={this.state.albums}/>}/>
         <Route  path="album/:id"  element={<Albums  photos={this.state.photos} albums={this.state.albums}/>}  />
+        <Route   path="photo/:id"  element={<Photo  photos={this.state.photos}  updateData={this.state.updateData}/>}/>
     </Routes>
     </div>
   );
