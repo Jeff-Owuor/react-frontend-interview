@@ -1,15 +1,13 @@
-import React,{useState} from 'react'
-import { useParams,Link } from 'react-router-dom';
+import React  from 'react'
+import { useParams} from 'react-router-dom';
 
 function Photo(props){
       let { id } = useParams();
     let photo = props.photos.find(photo => photo.id === parseInt(id));
     return(
         <div>
-            <form onSubmit={()=>props.updateUser(id)}>
-                <input  value={photo.title}  onChange={()=>props.handleTitleChange(parseInt(id))} name="title"/>
-                <button>Update</button>
-            </form>
+                <input  value={photo.title}  onChange={(e)=>props.handleTitleChange(e,parseInt(id))}/>
+                <button  onClick={()=>props.updateUser(id)}>Update</button>
         </div>
     )
 }
