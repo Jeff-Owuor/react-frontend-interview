@@ -43,8 +43,8 @@ class  App extends React.Component{
       handleChange = (e,id) => {
         this.setState((prevState) => {
           const photos = [...prevState.photos];
-          const index = photos.findIndex((photo) => photo.id === parseInt(id));
-          photos[index] = { ...photos[index], title:photos[index].title= e.target.value};
+          const index = photos.findIndex((photo) => photo.id === id);
+          photos[index] = { ...photos[index], title:photos[index].title=e.target.value};
           return { photos };
         });
       };
