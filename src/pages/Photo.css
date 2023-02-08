@@ -1,0 +1,24 @@
+.photo{
+    display:flex;
+    flex-direction: column;
+    padding:5px;
+    
+}
+
+.image{
+    height:60vh;
+    width:70vw;
+    padding-left:7vw;
+    padding-bottom: 5vh;
+    padding-top: 5vh;
+}
+input{
+    width:50vw;
+    margin:2vh 2vw 0 7vw;
+}
+.button{
+    width:30vw;
+    margin:2vh 2vw 3vh 7vw;
+    background-color: black;
+    color:whitesmoke;
+}
