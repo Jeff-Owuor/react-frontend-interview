@@ -51,7 +51,6 @@ function LandingPage() {
                         <div>
                             <img  src={user.picture}/>
                             <h3>{user.name}</h3>
-                            <h2>{process.env.CLIENT_ID}</h2>
                         </div>
                         }
                  </div>
