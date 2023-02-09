@@ -6,7 +6,7 @@ import UserDetails from './pages/User';
 import LandingPage from './pages/LandingPage'
 import Albums from './pages/Albums';
 import Photo from './pages/Photo';
-
+import Navbar from './pages/Navbar';
 
 class  App extends React.Component{
         state = {
@@ -68,6 +68,7 @@ class  App extends React.Component{
   render(){
   return (
     <div className="App">
+    <Navbar/>
     <Routes>
         <Route   path="/"  element={<LandingPage/>}></Route>
         <Route  path="/home"  element={<Home  users={JSON.parse(window.localStorage.getItem("Users"))} albums={this.state.albums}/>}/>
