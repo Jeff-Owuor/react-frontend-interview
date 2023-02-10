@@ -10,6 +10,7 @@ function LandingPage() {
         console.log(`Encoded jwt id token:  ${response.credential}`)
         var userObj = jwt_decode(response.credential)
         setUser(userObj)
+        window.localStorage.setItem('jwt',JSON.stringify(response.credential))
         document.getElementById('loginDiv').hidden = true
     }
     
