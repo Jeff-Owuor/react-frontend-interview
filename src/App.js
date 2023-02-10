@@ -7,6 +7,7 @@ import LandingPage from './pages/LandingPage'
 import Albums from './pages/Albums';
 import Photo from './pages/Photo';
 import Navbar from './pages/Navbar';
+import PrivateRoute from './PrivateRoute/Index';
 
 class  App extends React.Component{
         state = {
@@ -70,7 +71,11 @@ class  App extends React.Component{
     <div className="App">
     <Routes>
         <Route   path="/"  element={<LandingPage/>}></Route>
-        <Route  path="/home"  element={<Home  users={JSON.parse(window.localStorage.getItem("Users"))} albums={this.state.albums}/>}/>
+        <Route  path="/home"  element={
+          <PrivateRoute>
+             <Home  users={JSON.parse(window.localStorage.getItem("Users"))} albums={this.state.albums} />
+          </PrivateRoute>
+         }/>
         <Route  path="user/:id"  element={<UserDetails  users={JSON.parse(window.localStorage.getItem("Users"))}  albums={JSON.parse(window.localStorage.getItem("Albums"))}/>}/>
         <Route  path="album/:id"  element={<Albums  photos={JSON.parse(window.localStorage.getItem("Photos"))}  albums={JSON.parse(window.localStorage.getItem("Albums"))}/>}  />
         <Route   path="photo/:id"  element={<Photo  photos={JSON.parse(window.localStorage.getItem("Photos"))}  updateUser={this.updateUser}  handleTitleChange={this.handleChange}/>}/>
