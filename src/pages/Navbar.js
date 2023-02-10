@@ -5,10 +5,12 @@ import './Navbar.css'
 function Navbar(props){
       return(
         <nav className="navbar" style={{height:"8vh"}}> 
-            <Link  to="/" style={{color:"#dde1e7"}}><span className="material-symbols-outlined">home</span> </Link>
+            <div>
+                <Link  to="/" style={{color:"#dde1e7",margin:"10px"}}><span className="material-symbols-outlined">home</span> </Link>
+                <Link  to="/home" style={{color:"#dde1e7",margin:"10px"}} ><span className="material-symbols-outlined">groups</span></Link>
+              </div>
             {props.user &&
                 <div>
-                     <Link  to="/home" style={{color:"#dde1e7"}} ><span className="material-symbols-outlined">groups</span></Link>
                       <img  src={props.user.picture} class=" rounded-circle img-fluid max-width: 100%;"  style={{height:"7vh"}}/>
                 </div>
             }
