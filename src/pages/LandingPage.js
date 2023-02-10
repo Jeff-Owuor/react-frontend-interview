@@ -37,18 +37,19 @@ function LandingPage() {
     return (
                <div>
                <Navbar user={user}/>
+               <h1>Photo Album</h1>
                  <div  className="containerEl">
-                    <p style={{textAlign:"center"}}>An application that displays a list of users 
-                           and the number of albums they have.
+                    <p style={{textAlign:"center"}}>Browse through a list of users and  have a sneak peek of the number of albums
+                    they have.
                         </p>
                         <p style={{textAlign:"center"}}> Click the user 
                            to get more information about them including a list 
                            of all the albums in their name.</p>
-                        <p style={{textAlign:"center"}}> Click an album to 
-                           see all the photos in that particular album</p>
+                        <p style={{textAlign:"center"}}> Select an album to 
+                           see all the photos in that particular album and edit the title of the photo to your liking by clicking the title of the photo</p>
                         <div id="loginDiv"></div>
                         {Object.keys(user).length !== 0  && 
-                            <button  onClick={handleSignOut}>Log Out</button>
+                            <button  onClick={handleSignOut}  className="btn btn-secondary mt-3">Log Out</button>
                         }
                         
                  </div>
