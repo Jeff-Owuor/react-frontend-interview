@@ -1,11 +1,14 @@
 import  React  from 'react'
 import { useParams,Link } from 'react-router-dom';
+import Navbar from "./Navbar";
 
 function Albums (props){
     let { id } = useParams();
     let album = props.albums.find(album => album.id === parseInt(id));
     let photosPerAlbum = props.photos.filter(album => album.albumId ===parseInt(id))
     return (
+        <div>
+        <Navbar  style={{width:"100vw"}}/>
         <div  className='container'>
             <h2>{album.title}</h2>
             <div className='row'>
@@ -16,6 +19,7 @@ function Albums (props){
                      </div>
                 )}
             </div>
+        </div>
         </div>
     )
 }

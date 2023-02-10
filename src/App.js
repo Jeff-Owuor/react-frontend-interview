@@ -68,7 +68,6 @@ class  App extends React.Component{
   render(){
   return (
     <div className="App">
-    <Navbar/>
     <Routes>
         <Route   path="/"  element={<LandingPage/>}></Route>
         <Route  path="/home"  element={<Home  users={JSON.parse(window.localStorage.getItem("Users"))} albums={this.state.albums}/>}/>

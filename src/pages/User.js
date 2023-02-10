@@ -2,6 +2,7 @@ import React from "react";
 import { useParams } from 'react-router-dom';
 import  {Link}  from  'react-router-dom'
 import './User.css'
+import Navbar from "./Navbar";
 
 function UserDetails(props) {
     let { id } = useParams();
@@ -10,6 +11,7 @@ function UserDetails(props) {
 
     return (
       <div>
+        <Navbar/>
         <h2>{user.name}'s Albums</h2>
           <ol  className="square">
            {albumsPerUser.map(album=>

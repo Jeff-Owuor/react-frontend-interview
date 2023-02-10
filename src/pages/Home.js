@@ -1,10 +1,13 @@
 import React from "react";
 import  './Home.css'
 import  {Link}  from  'react-router-dom'
+import Navbar from "./Navbar";
 
 class Home extends React.Component{
     render(){
         return(
+            <div>
+            <Navbar style={{width:"100vw"}}/>
             <div className="container">
             <h1>Users list</h1>
             <div className="row  mt-5">
@@ -23,7 +26,7 @@ class Home extends React.Component{
                 
                 </div>
              </div>
-        
+             </div>
         )
     }
 }

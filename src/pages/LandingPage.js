@@ -1,6 +1,7 @@
 import React,{useEffect,useState} from "react";
 import jwt_decode  from 'jwt-decode'
 import  './Landing.css'
+import Navbar from './Navbar'
 
 function LandingPage() {
    const [user,setUser]  = useState({});
@@ -34,6 +35,8 @@ function LandingPage() {
     //if user is available: show the log out button 
     // if user is not available show the sign in button
     return (
+               <div>
+               <Navbar user={user}/>
                  <div  className="containerEl">
                     <p style={{textAlign:"center"}}>An application that displays a list of users 
                            and the number of albums they have.
@@ -47,13 +50,8 @@ function LandingPage() {
                         {Object.keys(user).length !== 0  && 
                             <button  onClick={handleSignOut}>Log Out</button>
                         }
-                        {user && 
-                        <div>
-                            <img  src={user.picture}/>
-                            <h3>{user.name}</h3>
-                            <h2>{process.env.CLIENT_ID}</h2>
-                        </div>
-                        }
+                        
+                 </div>
                  </div>
     )
 }
