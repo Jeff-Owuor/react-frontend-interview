@@ -1,11 +1,14 @@
 import  React  from 'react'
+import { useSelector } from 'react-redux';
 import { useParams,Link } from 'react-router-dom';
 import Navbar from "./Navbar";
 
-function Albums (props){
+function Albums (){
+    let albums = useSelector(elem=>elem.albums[0])
+    let photos = useSelector(elem=>elem.photos[0])
     let { id } = useParams();
-    let album = props.albums.find(album => album.id === parseInt(id));
-    let photosPerAlbum = props.photos.filter(album => album.albumId ===parseInt(id))
+    let album = albums.find(album => album.id === parseInt(id));
+    let photosPerAlbum = photos.filter(album => album.albumId ===parseInt(id))
     return (
         <div>
         <Navbar  style={{width:"100vw"}}/>
