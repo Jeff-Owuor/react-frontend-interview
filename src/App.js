@@ -10,37 +10,6 @@ import Navbar from './pages/Navbar';
 import PrivateRoute from './PrivateRoute/Index';
 
 class  App extends React.Component{
-        state = {
-          users:[],
-          albums:[],
-          photos:[],
-          title:'',
-      }
-
-      componentDidMount(){
-          fetch('https://jsonplaceholder.typicode.com/users')
-        .then(response => response.json())
-        .then(users => this.setState({ users }))
-        .catch(error => console.error(error));
-
-        fetch('https://jsonplaceholder.typicode.com/albums')
-        .then(response => response.json())
-        .then(albums => this.setState({ albums }))
-        .catch(error => console.error(error));
-
-        fetch('https://jsonplaceholder.typicode.com/photos')
-        .then(response => response.json())
-        .then(photos => this.setState({ photos }))
-        .catch(error => console.error(error));
-    
-
-      }
-    componentDidUpdate(){
-      window.localStorage.setItem('Users',JSON.stringify(this.state.users))
-      window.localStorage.setItem('Albums',JSON.stringify(this.state.albums))
-      window.localStorage.setItem('Photos',JSON.stringify(this.state.photos))
-    }
-
       handleChange = (e,id) => {
         this.setState((prevState) => {
           const photos = [...prevState.photos];
@@ -72,13 +41,11 @@ class  App extends React.Component{
     <Routes>
         <Route   path="/"  element={<LandingPage/>}></Route>
         <Route  path="/home"  element={
-          <PrivateRoute>
-             <Home  users={JSON.parse(window.localStorage.getItem("Users"))} albums={this.state.albums} />
-          </PrivateRoute>
+             <Home />
          }/>
-        <Route  path="user/:id"  element={<UserDetails  users={JSON.parse(window.localStorage.getItem("Users"))}  albums={JSON.parse(window.localStorage.getItem("Albums"))}/>}/>
-        <Route  path="album/:id"  element={<Albums  photos={JSON.parse(window.localStorage.getItem("Photos"))}  albums={JSON.parse(window.localStorage.getItem("Albums"))}/>}  />
-        <Route   path="photo/:id"  element={<Photo  photos={JSON.parse(window.localStorage.getItem("Photos"))}  updateUser={this.updateUser}  handleTitleChange={this.handleChange}/>}/>
+        <Route  path="user/:id"  element={<UserDetails />}/>
+        <Route  path="album/:id"  element={<Albums />}  />
+        <Route   path="photo/:id"  element={<Photo />}/>
     </Routes>
     </div>
   );
