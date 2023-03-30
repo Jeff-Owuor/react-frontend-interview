@@ -3,12 +3,15 @@ import { useParams } from 'react-router-dom';
 import  {Link}  from  'react-router-dom'
 import './User.css'
 import Navbar from "./Navbar";
+import { useSelector } from "react-redux";
 
-function UserDetails(props) {
+function UserDetails() { 
+  let users= useSelector(elem=>elem.users[0])
+  let albums = useSelector(elem=>elem.albums[0])
     let { id } = useParams();
-    let user = props.users.find(user => user.id === parseInt(id));
-    let albumsPerUser = props.albums.filter(albumUser => albumUser.userId ===parseInt(id))
-
+    let user = users.find(user => user.id === parseInt(id));
+    let albumsPerUser = albums.filter(albumUser => albumUser.userId ===parseInt(id))
+     if(users && albums){
     return (
       <div>
         <Navbar/>
@@ -24,6 +27,10 @@ function UserDetails(props) {
           </ol>
       </div>
     );
+  }
+  return (
+    <h3>Loading ...</h3>
+  )
   }
 
 export default UserDetails
