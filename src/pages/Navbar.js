@@ -11,7 +11,7 @@ function Navbar(props){
               </div>
             {props.user &&
                 <div>
-                      <img  src={props.user.picture} class=" rounded-circle img-fluid max-width: 100%;"  style={{height:"7vh"}}/>
+                      <img  src={props.user.picture} className=" rounded-circle img-fluid max-width: 100%;"  style={{height:"7vh"}}/>
                 </div>
             }
             
