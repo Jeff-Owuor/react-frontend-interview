@@ -14,7 +14,8 @@
 const initialState = {
     users:[],
     albums:[],
-    photos:[]
+    photos:[],
+    title:''
 }
 
 const appReducers = (state=initialState,action) => {
@@ -40,9 +41,18 @@ const appReducers = (state=initialState,action) => {
                 ...state,
                 photos:[
                     ...state.photos,
-                    action.payload
+                   action.payload                
                 ]
+
             }
+            case "UPDATE_USER":
+                return {
+                    ...state,
+                    photos:[
+                        ...state.photos,
+                        action.payload
+                    ]
+                }
             case 'LOAD_DATA_FAILURE':
                 console.log("Error Occurred!!")
             default:
